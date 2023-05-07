@@ -345,10 +345,6 @@ class PlayState extends MusicBeatState
 
 	override public function create()
 	{
-	    playfieldRenderer = new PlayfieldRenderer(strumLineNotes, notes, this);
-        playfieldRenderer.cameras = [camHUD];
-        add(playfieldRenderer);
-        
 		// trace('Playback Rate: ' + playbackRate);
 		Paths.clearStoredMemory();
 
@@ -1095,6 +1091,10 @@ class PlayState extends MusicBeatState
 
 		strumLineNotes = new FlxTypedGroup<StrumNote>();
 		add(strumLineNotes);
+		
+		playfieldRenderer = new PlayfieldRenderer(strumLineNotes, notes, this);
+        playfieldRenderer.cameras = [camHUD];
+        add(playfieldRenderer);
 		add(grpNoteSplashes);
 
 		if (ClientPrefs.timeBarType == 'Song Name')
